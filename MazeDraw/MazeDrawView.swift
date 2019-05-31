@@ -9,6 +9,8 @@
 import Cocoa
 
 class MazeDrawView: NSView {
+    var rows:Int = 5
+    var cols:Int = 10
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -18,12 +20,12 @@ class MazeDrawView: NSView {
         bgColor.set()
         NSBezierPath.fill(bounds)
         
-        drawMaze(bounds.size)
+        if rows >= 2 && cols >= 2 {
+            drawMaze(bounds.size)
+        }
     }
     
     func drawMaze(_ size: NSSize) {
-        let rows = 5
-        let cols = 10
         let border: CGFloat = 5
         let width = (bounds.width - 2 * border) / CGFloat(cols)
         let height = (bounds.height - 2 * border) / CGFloat(rows)
