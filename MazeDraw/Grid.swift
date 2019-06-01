@@ -12,6 +12,7 @@ class Grid {
     var rows: Int
     var cols: Int
     var grid = [[Cell]]()
+    var count: Int { return rows * cols }
     
     init(rows: Int, cols: Int) {
         self.rows = rows
@@ -53,5 +54,11 @@ class Grid {
                 cell.east = cell_at(row: row, col: col+1)
             }
         }
+    }
+    
+    func random_cell() -> Cell {
+        let row = Int.random(in: 0..<rows)
+        let col = Int.random(in: 0..<cols)
+        return cell_at(row: row, col: col)!
     }
 }

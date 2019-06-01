@@ -13,6 +13,7 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var rowsField: NSTextField!
     @IBOutlet weak var colsField: NSTextField!
     @IBOutlet weak var mazeDrawView: MazeDrawView!
+    @IBOutlet weak var mazeAlgorithm: NSPopUpButton!
 
     override var windowNibName: String {
         return "MainWindowController"
@@ -38,7 +39,18 @@ class MainWindowController: NSWindowController {
 
         if mazeDrawView.rows > 0 && mazeDrawView.cols > 0 {
             let grid = Grid(rows: mazeDrawView.rows, cols: mazeDrawView.cols)
-            Binary_Tree.create(on: grid)
+            switch (mazeAlgorithm.indexOfSelectedItem) {
+            case 0:
+                Binary_Tree.create(on: grid)
+            case 1:
+                Sidewinder.create(on: grid)
+            case 2:
+                Aldous_Broder.create(on: grid)
+            case 3:
+                Recursive_Backtracker.create(on: grid)
+            default:
+                print("Unexpected algorithm index = \(mazeAlgorithm.indexOfSelectedItem)")
+            }
             mazeDrawView.grid = grid
             mazeDrawView.needsDisplay = true
         } else {

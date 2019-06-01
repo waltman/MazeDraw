@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="MazeDraw" customModuleProvider="target">
             <connections>
                 <outlet property="colsField" destination="Brg-7h-Sbt" id="XG2-LQ-xNJ"/>
+                <outlet property="mazeAlgorithm" destination="Try-eI-egi" id="JPr-tS-MF7"/>
                 <outlet property="mazeDrawView" destination="pGp-tM-Aae" id="27A-GI-JQD"/>
                 <outlet property="rowsField" destination="iCg-0c-KjC" id="KAQ-IB-SQh"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
@@ -20,15 +21,18 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <view key="contentView" misplaced="YES" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="525" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="pGp-tM-Aae" customClass="MazeDrawView" customModule="MazeDraw" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="60" width="480" height="210"/>
+                        <rect key="frame" x="0.0" y="60" width="525" height="210"/>
                     </customView>
-                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
-                        <rect key="frame" x="372" y="12" width="108" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
+                        <rect key="frame" x="417" y="12" width="108" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="96" id="7H5-tb-uwe"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="Draw Maze" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qzv-un-UYR">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -37,7 +41,7 @@
                             <action selector="redrawMazeWithSender:" target="-2" id="7dx-5T-3u6"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rK-rAl">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rK-rAl">
                         <rect key="frame" x="20" y="35" width="40" height="17"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Rows:" id="2FJ-P8-hWI">
                             <font key="font" metaFont="system"/>
@@ -45,41 +49,74 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-gA-ysh">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-gA-ysh">
                         <rect key="frame" x="25" y="10" width="35" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Cols:" id="9oU-y0-wZP">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-0c-KjC">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-0c-KjC">
                         <rect key="frame" x="66" y="32" width="38" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="38" id="R99-YL-pjL"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="YgF-zo-c0h">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-7h-Sbt">
+                    <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-7h-Sbt">
                         <rect key="frame" x="66" y="8" width="38" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="SJY-ds-cpz">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Try-eI-egi">
+                        <rect key="frame" x="167" y="17" width="174" height="25"/>
+                        <popUpButtonCell key="cell" type="push" title="Binary Tree" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3dT-Ha-jtB" id="8We-PN-XVl">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="QX4-lY-igG">
+                                <items>
+                                    <menuItem title="Binary Tree" state="on" id="3dT-Ha-jtB"/>
+                                    <menuItem title="Sidewinder" id="ok8-py-QUB"/>
+                                    <menuItem title="Aldous Broder" id="lgd-du-Jdc">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                    <menuItem title="Recursive Backtracker" id="9ua-zz-kYh">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="pGp-tM-Aae" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="13w-Ie-Gah"/>
-                    <constraint firstItem="J4G-hO-S7z" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="20" symbolic="YES" id="7Hc-cq-Mr5"/>
-                    <constraint firstItem="a1k-rK-rAl" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="8" symbolic="YES" id="Ha5-Yy-rBg"/>
-                    <constraint firstAttribute="bottom" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="60" id="JYd-ar-S4f"/>
-                    <constraint firstItem="iCg-0c-KjC" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="6" id="Uc2-NJ-jck"/>
-                    <constraint firstItem="pGp-tM-Aae" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="adY-1U-B8X"/>
-                    <constraint firstAttribute="trailing" secondItem="pGp-tM-Aae" secondAttribute="trailing" id="g47-c2-16v"/>
+                    <constraint firstItem="J4G-hO-S7z" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="20" symbolic="YES" id="23U-4l-JXw"/>
+                    <constraint firstAttribute="trailing" secondItem="pGp-tM-Aae" secondAttribute="trailing" id="5qQ-fj-ABg"/>
+                    <constraint firstItem="pGp-tM-Aae" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="D8A-vB-EQL"/>
+                    <constraint firstItem="5y3-gA-ysh" firstAttribute="centerY" secondItem="Brg-7h-Sbt" secondAttribute="centerY" id="Huc-hu-5kR"/>
+                    <constraint firstItem="Brg-7h-Sbt" firstAttribute="leading" secondItem="5y3-gA-ysh" secondAttribute="trailing" constant="8" symbolic="YES" id="I0y-Bq-LiV"/>
+                    <constraint firstItem="Try-eI-egi" firstAttribute="leading" secondItem="iCg-0c-KjC" secondAttribute="trailing" constant="65" id="P7L-LQ-dJn"/>
+                    <constraint firstItem="Brg-7h-Sbt" firstAttribute="top" secondItem="iCg-0c-KjC" secondAttribute="bottom" constant="2" id="QXp-xL-OP6"/>
+                    <constraint firstItem="5y3-gA-ysh" firstAttribute="top" secondItem="a1k-rK-rAl" secondAttribute="bottom" constant="8" symbolic="YES" id="a9M-sO-Sgn"/>
+                    <constraint firstItem="Try-eI-egi" firstAttribute="baseline" secondItem="J4G-hO-S7z" secondAttribute="baseline" id="bBj-bu-gil"/>
+                    <constraint firstItem="iCg-0c-KjC" firstAttribute="leading" secondItem="Brg-7h-Sbt" secondAttribute="leading" id="cZ5-dI-7ym"/>
+                    <constraint firstItem="iCg-0c-KjC" firstAttribute="trailing" secondItem="Brg-7h-Sbt" secondAttribute="trailing" id="drP-bx-LsB"/>
+                    <constraint firstItem="pGp-tM-Aae" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="hjf-OO-I0U"/>
+                    <constraint firstItem="a1k-rK-rAl" firstAttribute="baseline" secondItem="iCg-0c-KjC" secondAttribute="baseline" id="kQO-3P-Vzs"/>
+                    <constraint firstAttribute="bottom" secondItem="Try-eI-egi" secondAttribute="bottom" constant="20" symbolic="YES" id="mEh-0w-h8N"/>
+                    <constraint firstAttribute="trailing" secondItem="J4G-hO-S7z" secondAttribute="trailing" constant="6" id="nBC-fw-kK0"/>
+                    <constraint firstItem="a1k-rK-rAl" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="8" symbolic="YES" id="nUK-3l-l1O"/>
+                    <constraint firstAttribute="bottom" secondItem="5y3-gA-ysh" secondAttribute="bottom" constant="10" id="nws-Oq-Aie"/>
+                    <constraint firstItem="a1k-rK-rAl" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="22" id="uP5-vL-piJ"/>
+                    <constraint firstItem="iCg-0c-KjC" firstAttribute="leading" secondItem="a1k-rK-rAl" secondAttribute="trailing" constant="8" symbolic="YES" id="yCh-0I-AeL"/>
+                    <constraint firstItem="J4G-hO-S7z" firstAttribute="leading" secondItem="Try-eI-egi" secondAttribute="trailing" constant="85" id="yKO-c8-q2T"/>
                 </constraints>
             </view>
             <connections>
