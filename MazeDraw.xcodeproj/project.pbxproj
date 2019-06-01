@@ -13,6 +13,10 @@
 		30A243B1229F08A1006606E7 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243AF229F08A1006606E7 /* MainWindowController.swift */; };
 		30A243B2229F08A1006606E7 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A243B0229F08A1006606E7 /* MainWindowController.xib */; };
 		30A243B4229F0956006606E7 /* MazeDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243B3229F0956006606E7 /* MazeDrawView.swift */; };
+		30A243B622A0B64C006606E7 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243B522A0B64C006606E7 /* Grid.swift */; };
+		30A243B822A0B711006606E7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243B722A0B711006606E7 /* Cell.swift */; };
+		30A243BA22A1A720006606E7 /* Binary_Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243B922A1A720006606E7 /* Binary_Tree.swift */; };
+		30A243BC22A1AE6D006606E7 /* Maze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243BB22A1AE6C006606E7 /* Maze.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		30A243AF229F08A1006606E7 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		30A243B0229F08A1006606E7 /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		30A243B3229F0956006606E7 /* MazeDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeDrawView.swift; sourceTree = "<group>"; };
+		30A243B522A0B64C006606E7 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		30A243B722A0B711006606E7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		30A243B922A1A720006606E7 /* Binary_Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binary_Tree.swift; sourceTree = "<group>"; };
+		30A243BB22A1AE6C006606E7 /* Maze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maze.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +66,15 @@
 			isa = PBXGroup;
 			children = (
 				30A243A1229F076E006606E7 /* AppDelegate.swift */,
+				30A243B922A1A720006606E7 /* Binary_Tree.swift */,
 				30A243AF229F08A1006606E7 /* MainWindowController.swift */,
+				30A243B522A0B64C006606E7 /* Grid.swift */,
+				30A243B722A0B711006606E7 /* Cell.swift */,
 				30A243B0229F08A1006606E7 /* MainWindowController.xib */,
 				30A243A3229F076F006606E7 /* Assets.xcassets */,
 				30A243A5229F076F006606E7 /* MainMenu.xib */,
 				30A243B3229F0956006606E7 /* MazeDrawView.swift */,
+				30A243BB22A1AE6C006606E7 /* Maze.swift */,
 				30A243A8229F076F006606E7 /* Info.plist */,
 				30A243A9229F076F006606E7 /* MazeDraw.entitlements */,
 			);
@@ -142,7 +154,11 @@
 			files = (
 				30A243B1229F08A1006606E7 /* MainWindowController.swift in Sources */,
 				30A243A2229F076E006606E7 /* AppDelegate.swift in Sources */,
+				30A243BA22A1A720006606E7 /* Binary_Tree.swift in Sources */,
+				30A243B822A0B711006606E7 /* Cell.swift in Sources */,
 				30A243B4229F0956006606E7 /* MazeDrawView.swift in Sources */,
+				30A243B622A0B64C006606E7 /* Grid.swift in Sources */,
+				30A243BC22A1AE6D006606E7 /* Maze.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
