@@ -15,7 +15,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+        <window title="Maze Draw Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -24,13 +24,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pGp-tM-Aae" customClass="MazeDrawView" customModule="MazeDraw" customModuleProvider="target">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="pGp-tM-Aae" customClass="MazeDrawView" customModule="MazeDraw" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="60" width="480" height="210"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     </customView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
+                    <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
                         <rect key="frame" x="372" y="12" width="108" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Draw Maze" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qzv-un-UYR">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -39,9 +37,8 @@
                             <action selector="redrawMazeWithSender:" target="-2" id="7dx-5T-3u6"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rK-rAl">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rK-rAl">
                         <rect key="frame" x="20" y="35" width="40" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Rows:" id="2FJ-P8-hWI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -57,9 +54,8 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-0c-KjC">
+                    <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-0c-KjC">
                         <rect key="frame" x="66" y="32" width="38" height="22"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="YgF-zo-c0h">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -76,6 +72,15 @@
                         </textFieldCell>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="pGp-tM-Aae" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="13w-Ie-Gah"/>
+                    <constraint firstItem="J4G-hO-S7z" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="20" symbolic="YES" id="7Hc-cq-Mr5"/>
+                    <constraint firstItem="a1k-rK-rAl" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="8" symbolic="YES" id="Ha5-Yy-rBg"/>
+                    <constraint firstAttribute="bottom" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="60" id="JYd-ar-S4f"/>
+                    <constraint firstItem="iCg-0c-KjC" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="6" id="Uc2-NJ-jck"/>
+                    <constraint firstItem="pGp-tM-Aae" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="adY-1U-B8X"/>
+                    <constraint firstAttribute="trailing" secondItem="pGp-tM-Aae" secondAttribute="trailing" id="g47-c2-16v"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
