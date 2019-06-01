@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Binary_Tree: Maze {
-    override func _create_maze() {
+class Binary_Tree {
+    static func create(on grid: Grid) {
         for row in grid.grid {
             for cell in row {
                 var neighbors = [Cell]()

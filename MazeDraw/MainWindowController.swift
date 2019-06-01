@@ -38,7 +38,7 @@ class MainWindowController: NSWindowController {
 
         if mazeDrawView.rows > 0 && mazeDrawView.cols > 0 {
             let grid = Grid(rows: mazeDrawView.rows, cols: mazeDrawView.cols)
-            _ = Binary_Tree(grid: grid)
+            Binary_Tree.create(on: grid)
             mazeDrawView.grid = grid
             mazeDrawView.needsDisplay = true
         } else {
