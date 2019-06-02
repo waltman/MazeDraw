@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Cell: Hashable, Equatable {
+class Cell: Hashable, Equatable, CustomStringConvertible {
     static func == (lhs: Cell, rhs: Cell) -> Bool {
         return lhs.row == rhs.row && lhs.col == rhs.col
     }
@@ -27,6 +27,8 @@ class Cell: Hashable, Equatable {
         links = Set<Cell>()
     }
     
+    public var description: String { return "<\(type(of: self)): row=\(row), col=\(col)>" }
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(row)
         hasher.combine(col)
@@ -58,5 +60,23 @@ class Cell: Hashable, Equatable {
             }
         }
         return n
+    }
+
+    func distances() -> Distances {
+        let distances = Distances(root: self)
+        var q = [self]
+        var idx = 0
+
+        while idx < q.count {
+            let cell = q[idx]
+            idx += 1
+            for linked in cell.links {
+                if distances.distance_to[linked] == nil {
+                    distances.distance_to[linked] = distances.distance_to[cell]! + 1
+                    q.append(linked)
+                }
+            }
+        }
+        return distances
     }
 }

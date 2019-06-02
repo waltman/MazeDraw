@@ -13,6 +13,10 @@ class Grid {
     var cols: Int
     var grid = [[Cell]]()
     var count: Int { return rows * cols }
+    var startCell: Cell?
+    var goalCell: Cell?
+    var distances: Distances?
+    var path: [Cell]?
     
     init(rows: Int, cols: Int) {
         self.rows = rows

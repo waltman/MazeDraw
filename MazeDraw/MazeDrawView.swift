@@ -11,7 +11,9 @@ import Cocoa
 class MazeDrawView: NSView {
     var rows:Int = 5
     var cols:Int = 10
+    let border: CGFloat = 5
     var grid: Grid?
+    var path: [Cell] = []
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -23,11 +25,13 @@ class MazeDrawView: NSView {
         
         if rows >= 2 && cols >= 2 {
             drawMaze(bounds.size)
+            if !path.isEmpty {
+                drawPath(bounds.size)
+            }
         }
     }
     
     func drawMaze(_ size: NSSize) {
-        let border: CGFloat = 5
         let width = (bounds.width - 2 * border) / CGFloat(cols)
         let height = (bounds.height - 2 * border) / CGFloat(rows)
         
@@ -72,6 +76,25 @@ class MazeDrawView: NSView {
         }
         
         path.stroke()
-   }
-    
+    }
+
+    func drawPath(_ size: NSSize) {
+        let width = (bounds.width - 2 * border) / CGFloat(cols)
+        let height = (bounds.height - 2 * border) / CGFloat(rows)
+
+        NSColor.red.set()
+        let bez = NSBezierPath()
+        bez.lineWidth = 1
+
+        let cell = path.removeFirst()
+        let x = CGFloat(cell.col) * width + border + width/2
+        let y = CGFloat(cell.row) * height + border + height/2
+        bez.move(to:(NSPoint(x: x, y: y)))
+        for cell in path {
+            let x = CGFloat(cell.col) * width + border + width/2
+            let y = CGFloat(cell.row) * height + border + height/2
+            bez.line(to:(NSPoint(x: x, y: y)))
+        }
+        bez.stroke()
+    }
 }

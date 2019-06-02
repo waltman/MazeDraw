@@ -14,6 +14,7 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var colsField: NSTextField!
     @IBOutlet weak var mazeDrawView: MazeDrawView!
     @IBOutlet weak var mazeAlgorithm: NSPopUpButton!
+    @IBOutlet weak var solveButton: NSButton!
 
     override var windowNibName: String {
         return "MainWindowController"
@@ -51,11 +52,33 @@ class MainWindowController: NSWindowController {
             default:
                 print("Unexpected algorithm index = \(mazeAlgorithm.indexOfSelectedItem)")
             }
+            var start = grid.cell_at(row: 0, col: 0)!
+            var distances = start.distances()
+            var maxInfo = distances.max()
+            let goal = maxInfo.cell
+            distances = maxInfo.cell.distances()
+            maxInfo = distances.max()
+            start = maxInfo.cell
+
+            grid.startCell = start
+            grid.goalCell = goal
+            grid.distances = distances
+            solveButton.isEnabled = true
+
             mazeDrawView.grid = grid
+            mazeDrawView.path.removeAll()
             mazeDrawView.needsDisplay = true
         } else {
             mazeDrawView = nil
         }
-        
     }
+
+    @IBAction func solveMaze(sender: AnyObject) {
+        guard let grid = mazeDrawView.grid else { return }
+        guard let distances = grid.distances else { return }
+        mazeDrawView.path = distances.path_to(goal: grid.startCell!)
+        mazeDrawView.needsDisplay = true
+        solveButton.isEnabled = false
+    }
+
 }

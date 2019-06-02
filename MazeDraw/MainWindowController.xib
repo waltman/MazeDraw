@@ -11,6 +11,7 @@
                 <outlet property="mazeAlgorithm" destination="Try-eI-egi" id="JPr-tS-MF7"/>
                 <outlet property="mazeDrawView" destination="pGp-tM-Aae" id="27A-GI-JQD"/>
                 <outlet property="rowsField" destination="iCg-0c-KjC" id="KAQ-IB-SQh"/>
+                <outlet property="solveButton" destination="Y1P-8O-fmd" id="a6N-8Y-9Uk"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -19,30 +20,17 @@
         <window title="Maze Draw Demo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="566" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-            <view key="contentView" misplaced="YES" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="525" height="270"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="566" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="pGp-tM-Aae" customClass="MazeDrawView" customModule="MazeDraw" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="60" width="525" height="210"/>
+                        <rect key="frame" x="0.0" y="59" width="566" height="211"/>
                     </customView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
-                        <rect key="frame" x="417" y="12" width="108" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="96" id="7H5-tb-uwe"/>
-                        </constraints>
-                        <buttonCell key="cell" type="push" title="Draw Maze" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qzv-un-UYR">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="redrawMazeWithSender:" target="-2" id="7dx-5T-3u6"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a1k-rK-rAl">
-                        <rect key="frame" x="20" y="35" width="40" height="17"/>
+                        <rect key="frame" x="20" y="34" width="40" height="17"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Rows:" id="2FJ-P8-hWI">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -50,7 +38,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-gA-ysh">
-                        <rect key="frame" x="25" y="10" width="35" height="17"/>
+                        <rect key="frame" x="25" y="10" width="35" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Cols:" id="9oU-y0-wZP">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -58,7 +46,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iCg-0c-KjC">
-                        <rect key="frame" x="66" y="32" width="38" height="22"/>
+                        <rect key="frame" x="66" y="31" width="38" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="38" id="R99-YL-pjL"/>
                         </constraints>
@@ -68,7 +56,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-7h-Sbt">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-7h-Sbt">
                         <rect key="frame" x="66" y="8" width="38" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="SJY-ds-cpz">
                             <font key="font" metaFont="system"/>
@@ -77,7 +65,7 @@
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Try-eI-egi">
-                        <rect key="frame" x="167" y="17" width="174" height="25"/>
+                        <rect key="frame" x="167" y="17" width="215" height="25"/>
                         <popUpButtonCell key="cell" type="push" title="Binary Tree" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="3dT-Ha-jtB" id="8We-PN-XVl">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -95,33 +83,61 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Y1P-8O-fmd">
+                        <rect key="frame" x="475" y="1" width="74" height="32"/>
+                        <buttonCell key="cell" type="push" title="Solve" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e8O-pv-77h">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="solveMazeWithSender:" target="-2" id="7d4-7G-Ax5"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-hO-S7z">
+                        <rect key="frame" x="457" y="24" width="108" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="96" id="7H5-tb-uwe"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Draw Maze" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qzv-un-UYR">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="redrawMazeWithSender:" target="-2" id="7dx-5T-3u6"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="J4G-hO-S7z" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="20" symbolic="YES" id="23U-4l-JXw"/>
+                    <constraint firstItem="J4G-hO-S7z" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="7" id="23U-4l-JXw"/>
                     <constraint firstAttribute="trailing" secondItem="pGp-tM-Aae" secondAttribute="trailing" id="5qQ-fj-ABg"/>
                     <constraint firstItem="pGp-tM-Aae" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="D8A-vB-EQL"/>
-                    <constraint firstItem="5y3-gA-ysh" firstAttribute="centerY" secondItem="Brg-7h-Sbt" secondAttribute="centerY" id="Huc-hu-5kR"/>
+                    <constraint firstItem="5y3-gA-ysh" firstAttribute="centerY" secondItem="Brg-7h-Sbt" secondAttribute="centerY" constant="1" id="Huc-hu-5kR"/>
                     <constraint firstItem="Brg-7h-Sbt" firstAttribute="leading" secondItem="5y3-gA-ysh" secondAttribute="trailing" constant="8" symbolic="YES" id="I0y-Bq-LiV"/>
+                    <constraint firstAttribute="trailing" secondItem="Y1P-8O-fmd" secondAttribute="trailing" constant="23" id="O2L-qR-aKP"/>
                     <constraint firstItem="Try-eI-egi" firstAttribute="leading" secondItem="iCg-0c-KjC" secondAttribute="trailing" constant="65" id="P7L-LQ-dJn"/>
-                    <constraint firstItem="Brg-7h-Sbt" firstAttribute="top" secondItem="iCg-0c-KjC" secondAttribute="bottom" constant="2" id="QXp-xL-OP6"/>
+                    <constraint firstItem="Brg-7h-Sbt" firstAttribute="top" secondItem="iCg-0c-KjC" secondAttribute="bottom" constant="1" id="QXp-xL-OP6"/>
+                    <constraint firstItem="Y1P-8O-fmd" firstAttribute="baseline" secondItem="Brg-7h-Sbt" secondAttribute="firstBaseline" id="XNz-Jl-f7Q"/>
                     <constraint firstItem="5y3-gA-ysh" firstAttribute="top" secondItem="a1k-rK-rAl" secondAttribute="bottom" constant="8" symbolic="YES" id="a9M-sO-Sgn"/>
-                    <constraint firstItem="Try-eI-egi" firstAttribute="baseline" secondItem="J4G-hO-S7z" secondAttribute="baseline" id="bBj-bu-gil"/>
+                    <constraint firstItem="Try-eI-egi" firstAttribute="baseline" secondItem="J4G-hO-S7z" secondAttribute="baseline" constant="12" id="bBj-bu-gil"/>
                     <constraint firstItem="iCg-0c-KjC" firstAttribute="leading" secondItem="Brg-7h-Sbt" secondAttribute="leading" id="cZ5-dI-7ym"/>
+                    <constraint firstItem="Brg-7h-Sbt" firstAttribute="baseline" secondItem="Y1P-8O-fmd" secondAttribute="baseline" id="d4U-In-Cbw"/>
                     <constraint firstItem="iCg-0c-KjC" firstAttribute="trailing" secondItem="Brg-7h-Sbt" secondAttribute="trailing" id="drP-bx-LsB"/>
                     <constraint firstItem="pGp-tM-Aae" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="hjf-OO-I0U"/>
                     <constraint firstItem="a1k-rK-rAl" firstAttribute="baseline" secondItem="iCg-0c-KjC" secondAttribute="baseline" id="kQO-3P-Vzs"/>
                     <constraint firstAttribute="bottom" secondItem="Try-eI-egi" secondAttribute="bottom" constant="20" symbolic="YES" id="mEh-0w-h8N"/>
-                    <constraint firstAttribute="trailing" secondItem="J4G-hO-S7z" secondAttribute="trailing" constant="6" id="nBC-fw-kK0"/>
+                    <constraint firstAttribute="trailing" secondItem="J4G-hO-S7z" secondAttribute="trailing" constant="7" id="nBC-fw-kK0"/>
                     <constraint firstItem="a1k-rK-rAl" firstAttribute="top" secondItem="pGp-tM-Aae" secondAttribute="bottom" constant="8" symbolic="YES" id="nUK-3l-l1O"/>
                     <constraint firstAttribute="bottom" secondItem="5y3-gA-ysh" secondAttribute="bottom" constant="10" id="nws-Oq-Aie"/>
                     <constraint firstItem="a1k-rK-rAl" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="22" id="uP5-vL-piJ"/>
+                    <constraint firstItem="iCg-0c-KjC" firstAttribute="baseline" secondItem="a1k-rK-rAl" secondAttribute="firstBaseline" id="xBZ-Wh-UQi"/>
                     <constraint firstItem="iCg-0c-KjC" firstAttribute="leading" secondItem="a1k-rK-rAl" secondAttribute="trailing" constant="8" symbolic="YES" id="yCh-0I-AeL"/>
-                    <constraint firstItem="J4G-hO-S7z" firstAttribute="leading" secondItem="Try-eI-egi" secondAttribute="trailing" constant="85" id="yKO-c8-q2T"/>
+                    <constraint firstItem="J4G-hO-S7z" firstAttribute="leading" secondItem="Try-eI-egi" secondAttribute="trailing" constant="84" id="yKO-c8-q2T"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
+            <point key="canvasLocation" x="147" y="148"/>
         </window>
     </objects>
 </document>

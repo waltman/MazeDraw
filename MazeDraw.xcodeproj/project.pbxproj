@@ -19,6 +19,7 @@
 		30A243BE22A202D5006606E7 /* Sidewinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243BD22A202D5006606E7 /* Sidewinder.swift */; };
 		30A243C022A20A34006606E7 /* Aldous_Broder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243BF22A20A34006606E7 /* Aldous_Broder.swift */; };
 		30A243C222A20F30006606E7 /* Recursive_Backtracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243C122A20F30006606E7 /* Recursive_Backtracker.swift */; };
+		30A243C422A2F672006606E7 /* Distances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A243C322A2F672006606E7 /* Distances.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		30A243BD22A202D5006606E7 /* Sidewinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidewinder.swift; sourceTree = "<group>"; };
 		30A243BF22A20A34006606E7 /* Aldous_Broder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aldous_Broder.swift; sourceTree = "<group>"; };
 		30A243C122A20F30006606E7 /* Recursive_Backtracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recursive_Backtracker.swift; sourceTree = "<group>"; };
+		30A243C322A2F672006606E7 /* Distances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distances.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				30A243B522A0B64C006606E7 /* Grid.swift */,
 				30A243B722A0B711006606E7 /* Cell.swift */,
 				30A243B0229F08A1006606E7 /* MainWindowController.xib */,
+				30A243C322A2F672006606E7 /* Distances.swift */,
 				30A243BF22A20A34006606E7 /* Aldous_Broder.swift */,
 				30A243BD22A202D5006606E7 /* Sidewinder.swift */,
 				30A243A3229F076F006606E7 /* Assets.xcassets */,
@@ -162,6 +165,7 @@
 				30A243C222A20F30006606E7 /* Recursive_Backtracker.swift in Sources */,
 				30A243B1229F08A1006606E7 /* MainWindowController.swift in Sources */,
 				30A243A2229F076E006606E7 /* AppDelegate.swift in Sources */,
+				30A243C422A2F672006606E7 /* Distances.swift in Sources */,
 				30A243C022A20A34006606E7 /* Aldous_Broder.swift in Sources */,
 				30A243BA22A1A720006606E7 /* Binary_Tree.swift in Sources */,
 				30A243B822A0B711006606E7 /* Cell.swift in Sources */,
