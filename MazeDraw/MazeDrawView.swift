@@ -19,7 +19,7 @@ class MazeDrawView: NSView {
         super.draw(dirtyRect)
 
         // Drawing code here.
-        let bgColor = NSColor.white
+        let bgColor = NSColor.windowBackgroundColor
         bgColor.set()
         NSBezierPath.fill(bounds)
         
@@ -35,7 +35,7 @@ class MazeDrawView: NSView {
         let width = (bounds.width - 2 * border) / CGFloat(cols)
         let height = (bounds.height - 2 * border) / CGFloat(rows)
         
-        NSColor.black.set()
+        NSColor.textColor.set()
         let path = NSBezierPath()
         path.lineWidth = 1
         
