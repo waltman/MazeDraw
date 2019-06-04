@@ -14,6 +14,8 @@ class MazeDrawView: NSView {
     let border: CGFloat = 5
     var grid: Grid?
     var path: [Cell] = []
+    var width: CGFloat { return (bounds.width - 2 * border) / CGFloat(cols) }
+    var height: CGFloat { return (bounds.height - 2 * border) / CGFloat(rows) }
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -32,9 +34,6 @@ class MazeDrawView: NSView {
     }
     
     func drawMaze(_ size: NSSize) {
-        let width = (bounds.width - 2 * border) / CGFloat(cols)
-        let height = (bounds.height - 2 * border) / CGFloat(rows)
-        
         NSColor.textColor.set()
         let path = NSBezierPath()
         path.lineWidth = 1
@@ -76,12 +75,19 @@ class MazeDrawView: NSView {
         }
         
         path.stroke()
+        
+        // draw circles at the start and end
+        if let g = grid {
+            if let start = g.startCell {
+                drawDot(at: start, color: NSColor.red)
+            }
+            if let goal = g.goalCell {
+                drawDot(at: goal, color: NSColor.red)
+            }
+        }
     }
 
     func drawPath(_ size: NSSize) {
-        let width = (bounds.width - 2 * border) / CGFloat(cols)
-        let height = (bounds.height - 2 * border) / CGFloat(rows)
-
         NSColor.red.set()
         let bez = NSBezierPath()
         bez.lineWidth = 1
@@ -95,6 +101,38 @@ class MazeDrawView: NSView {
             let y = CGFloat(cell.row) * height + border + height/2
             bez.line(to:(NSPoint(x: x, y: y)))
         }
+        bez.stroke()
+    }
+    
+    // draw a colored circle at cell's spot, filling the smaller of the
+    // horizontal or vertical dimension
+    func drawDot(at cell: Cell, color: NSColor) {
+        // determine whitespace around circle
+        let b: CGFloat
+        if min(width, height) > 2 {
+            b = 2
+        } else {
+            b = 0
+        }
+        
+        // get (x,y) coordinates of bottom corner of cell
+        let x = CGFloat(cell.col) * width + border
+        let y = CGFloat(cell.row) * height + border
+        
+        // compute the bounding rectangle
+        var rect: CGRect
+        if width < height {
+            let offset = (height - width) / 2
+            rect = CGRect(x: x+b, y: y+offset+b, width: width-b*2, height: width-b*2)
+        } else {
+            let offset = (width - height) / 2
+            rect = CGRect(x: x+offset+b, y: y+b, width: height-b*2, height: height-b*2)
+        }
+        
+        // draw the circle
+        color.set()
+        let bez = NSBezierPath(ovalIn: rect)
+        bez.fill()
         bez.stroke()
     }
 }
