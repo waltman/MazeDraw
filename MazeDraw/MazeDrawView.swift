@@ -79,7 +79,7 @@ class MazeDrawView: NSView {
         // draw circles at the start and end
         if let g = grid {
             if let start = g.startCell {
-                drawDot(at: start, color: NSColor.red)
+                drawDot(at: start, color: NSColor.green)
             }
             if let goal = g.goalCell {
                 drawDot(at: goal, color: NSColor.red)
