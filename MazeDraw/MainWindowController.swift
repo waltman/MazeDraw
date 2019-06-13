@@ -15,6 +15,8 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var mazeDrawView: MazeDrawView!
     @IBOutlet weak var mazeAlgorithm: NSPopUpButton!
     @IBOutlet weak var solveButton: NSButton!
+    @IBOutlet weak var rectRadioButton: NSButton!
+    @IBOutlet weak var circRadioButton: NSButton!
 
     override var windowNibName: String {
         return "MainWindowController"
@@ -79,6 +81,18 @@ class MainWindowController: NSWindowController {
         mazeDrawView.path = distances.path_to(goal: grid.startCell!)
         mazeDrawView.needsDisplay = true
         solveButton.isEnabled = false
+    }
+    
+    @IBAction func radioButtonChanged(_ sender: AnyObject) {
+        if rectRadioButton.state == NSControl.StateValue.on {
+            colsField.isEnabled = true
+            print("rect")
+        } else if circRadioButton.state == NSControl.StateValue.on {
+            colsField.isEnabled = false
+            print("circ")
+        } else {
+            print("I dunno")
+        }
     }
 
 }
