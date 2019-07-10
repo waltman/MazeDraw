@@ -90,7 +90,7 @@ class MazeDrawView: NSView {
     func drawPath(_ size: NSSize) {
         NSColor.red.set()
         let bez = NSBezierPath()
-        bez.lineWidth = 1
+        bez.lineWidth = min(width, height) / 4
 
         let cell = path[0]
         let x = CGFloat(cell.col) * width + border + width/2
