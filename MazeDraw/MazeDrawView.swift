@@ -92,11 +92,11 @@ class MazeDrawView: NSView {
         let bez = NSBezierPath()
         bez.lineWidth = 1
 
-        let cell = path.removeFirst()
+        let cell = path[0]
         let x = CGFloat(cell.col) * width + border + width/2
         let y = CGFloat(cell.row) * height + border + height/2
         bez.move(to:(NSPoint(x: x, y: y)))
-        for cell in path {
+        for cell in path[1...] {
             let x = CGFloat(cell.col) * width + border + width/2
             let y = CGFloat(cell.row) * height + border + height/2
             bez.line(to:(NSPoint(x: x, y: y)))
